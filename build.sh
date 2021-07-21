@@ -30,8 +30,12 @@ then flash on sd card: \`cd odroid-hc4-uboot/sd_fuse && ./sd_fusing.sh /dev/<YOU
 all checksums are built using \`sha256sum\`!
 
 files:
+\`\`\`
 $(cat release-files.txt)
+\`\`\`
 
 archive checksum:
+\`\`\`
 $(sha256sum "odroid-hc4-uboot.tar.zst")
+\`\`\`
 EOF
