@@ -11,4 +11,4 @@ arm-none-eabi-gcc -v
 cd u-boot
 make odroidc4_defconfig
 make
-mv sd_fuse ../output
+cp -r sd_fuse ../odroid-hc4-uboot

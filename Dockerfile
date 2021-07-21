@@ -7,8 +7,10 @@ RUN export DEBIAN_FRONTEND=noninteractive \
 
 WORKDIR /workdir
 
-RUN wget https://releases.linaro.org/archive/13.11/components/toolchain/binaries/gcc-linaro-aarch64-none-elf-4.8-2013.11_linux.tar.xz
-RUN wget https://releases.linaro.org/archive/14.04/components/toolchain/binaries/gcc-linaro-arm-none-eabi-4.8-2014.04_linux.tar.xz
+RUN wget -nv https://releases.linaro.org/archive/13.11/components/toolchain/binaries/gcc-linaro-aarch64-none-elf-4.8-2013.11_linux.tar.xz
+RUN wget -nv https://releases.linaro.org/archive/14.04/components/toolchain/binaries/gcc-linaro-arm-none-eabi-4.8-2014.04_linux.tar.xz
+ADD linaro_checksums.txt .
+RUN sha256sum -c linaro_checksums.txt
 
 RUN mkdir -p /opt/toolchains \
 	&& tar xf gcc-linaro-aarch64-none-elf-4.8-2013.11_linux.tar.xz -C /opt/toolchains/ \
@@ -16,4 +18,4 @@ RUN mkdir -p /opt/toolchains \
 
 RUN git clone https://github.com/hardkernel/u-boot.git -b odroidg12-v2015.01
 
-ADD build-in-container.sh .
+ADD cross-compile.sh .
