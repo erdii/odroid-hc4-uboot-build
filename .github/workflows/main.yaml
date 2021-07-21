@@ -15,6 +15,7 @@ jobs:
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
+        body_path: release-notes.txt
         files: odroid-hc4-uboot.tar.zst
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
